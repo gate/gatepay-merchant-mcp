@@ -13,16 +13,7 @@ GatePay Merchant MCP Server — A Model Context Protocol server for GatePay paym
   - Designated refund to Gate user (by UID) or Web3 address
   - Configurable fee bearer (merchant or user)
 
-## Configuration
-
-| Environment Variable | Required | Description |
-| --- | --- | --- |
-| `GATEPAY_CLIENT_ID` | Yes | Your GatePay merchant client ID |
-| `GATEPAY_SECRET_KEY` | Yes | Your GatePay API secret key for signing |
-| `GATEPAY_RESTRICTED_KEY` | Yes | Your GatePay restricted auth key |
-| `GATEPAY_BASE_URL` | No | API endpoint (default: `https://openplatform.gateapi.io/payment/open/api/mcp`) |
-
-## Usage
+## Quick Start
 
 Add the following to your MCP client configuration:
 
@@ -41,3 +32,36 @@ Add the following to your MCP client configuration:
   }
 }
 ```
+Put this into your MCP config such as ~/.cursor/mcp.json, then restart the client or reload MCP.
+
+
+## Environment Variables
+
+The server loads .env from the repository or package root at startup
+
+| Environment Variable | Required | Description |
+| --- | --- | --- |
+| `GATEPAY_CLIENT_ID` | Yes | Your GatePay merchant client ID |
+| `GATEPAY_SECRET_KEY` | Yes | Your GatePay API secret key for signing |
+| `GATEPAY_RESTRICTED_KEY` | Yes | Your GatePay restricted auth key |
+| `GATEPAY_BASE_URL` | No | API endpoint (default: `https://openplatform.gateapi.io/payment/open/api/mcp`) |
+
+## Development
+
+```bash
+# install dependencies
+npm install
+
+# build TypeScript output into dist/
+npm run build
+
+# start the MCP server from source (no build needed)
+npm run dev
+
+# run the built entrypoint
+npm start
+
+```
+
+## License
+MIT

@@ -3,19 +3,26 @@
   "version": "1.0.0",
   "description": "GatePay Payment MCP Server - 支付系统本地 MCP 服务",
   "type": "module",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "bin": {
-    "gatepay-payment-mcp": "src/index.js"
+    "gatepay-payment-mcp": "dist/index.js"
   },
   "scripts": {
-    "start": "node src/index.js"
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "dev": "npx tsx test/test.ts",
+    "start": "node dist/index.js"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.12.1",
-    "zod": "^3.24.0"
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.5.0"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "keywords": [
     "mcp",
