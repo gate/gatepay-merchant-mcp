@@ -1,7 +1,7 @@
 {
   "name": "gatepay-merchant-mcp",
   "version": "1.0.0",
-  "description": "GatePay Payment MCP Server - 支付系统本地 MCP 服务",
+  "description": "GatePay Merchant Local (stdio) MCP server",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
