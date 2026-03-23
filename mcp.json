@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "gatepay-merchant": {
+      "command": "npx",
+      "args": ["-y", "gatepay-payment-mcp@latest"],
+      "env": {
+        "GATEPAY_CLIENT_ID": "",
+        "GATEPAY_SECRET_KEY": "",
+        "GATEPAY_RESTRICTED_KEY": "",
+        "GATEPAY_BASE_URL": "https://openplatform.gateapi.io/payment/open/api/mcp"
+      }
+    }
+  }
+}

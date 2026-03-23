@@ -1,0 +1,29 @@
+{
+  "name": "gatepay-payment-mcp",
+  "version": "1.0.0",
+  "description": "GatePay Payment MCP Server - 支付系统本地 MCP 服务",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "gatepay-payment-mcp": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.24.0"
+  },
+  "files": [
+    "src"
+  ],
+  "keywords": [
+    "mcp",
+    "gatepay",
+    "payment"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
