@@ -37,8 +37,6 @@ Put this into your MCP config such as ~/.cursor/mcp.json, then restart the clien
 
 ## Environment Variables
 
-The server loads .env from the repository or package root at startup
-
 | Environment Variable | Required | Description |
 | --- | --- | --- |
 | `GATEPAY_CLIENT_ID` | Yes | Your GatePay merchant client ID |
@@ -55,11 +53,11 @@ npm install
 # build TypeScript output into dist/
 npm run build
 
-# start the MCP server from source (no build needed)
-npm run dev
-
 # run the built entrypoint
 npm start
+
+# run integration test against test environment
+npm test
 
 ```
 

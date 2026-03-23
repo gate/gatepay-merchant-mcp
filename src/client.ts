@@ -61,6 +61,7 @@ export class GatePayClient {
         url,
         {
           method: "POST",
+          timeout: 10000,
           headers: {
             "Content-Type": "application/json",
             "X-GatePay-Certificate-ClientId": this.clientId,
@@ -74,6 +75,10 @@ export class GatePayClient {
           let data = "";
           res.on("data", (chunk: Buffer) => (data += chunk));
           res.on("end", () => {
+            if (res.statusCode && (res.statusCode < 200 || res.statusCode >= 300)) {
+              reject(new Error(`HTTP ${res.statusCode}: ${data}`));
+              return;
+            }
             try {
               const json = JSON.parse(data);
               if (json?.error) {
@@ -87,6 +92,10 @@ export class GatePayClient {
           });
         }
       );
+      req.on("timeout", () => {
+        req.destroy();
+        reject(new Error("Request timeout (10s)"));
+      });
       req.on("error", (err: Error) => reject(err));
       req.write(body);
       req.end();

@@ -7,6 +7,10 @@ import {
   CallToolRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import { GatePayClient } from "./client.js";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
+const { version } = require("../package.json");
 
 // ============================================================
 // 从环境变量读取配置
@@ -16,9 +20,9 @@ const SECRET_KEY = process.env.GATEPAY_SECRET_KEY;
 const AUTH_KEY = process.env.GATEPAY_RESTRICTED_KEY;
 const BASE_URL = process.env.GATEPAY_BASE_URL || "https://openplatform.gateapi.io/payment/open/api/mcp";
 
-if (!CLIENT_ID || !SECRET_KEY) {
+if (!CLIENT_ID || !SECRET_KEY || !AUTH_KEY) {
   console.error(
-    "错误：请设置环境变量 GATEPAY_CLIENT_ID 和 GATEPAY_SECRET_KEY"
+    "错误：请设置环境变量 GATEPAY_CLIENT_ID、GATEPAY_SECRET_KEY 和 GATEPAY_RESTRICTED_KEY"
   );
   process.exit(1);
 }
@@ -34,7 +38,7 @@ const client = new GatePayClient({
 // MCP Server — 纯代理模式，tools/list 和 tools/call 都转发到远端
 // ============================================================
 const server = new Server(
-  { name: "gatepay-merchant-mcp", version: "1.0.0" },
+  { name: "gatepay-merchant-mcp", version },
   { capabilities: { tools: {} } }
 );
 

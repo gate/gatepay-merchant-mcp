@@ -12,13 +12,13 @@ import { GatePayClient } from "../src/client.js";
 // ============================================================
 // 配置（从环境变量读取）
 // ============================================================
-const CLIENT_ID = "mZ96D37oKk-HrWJc";
-const SECRET_KEY = "Mz6M_q4AkDnZCSoTDo03A6OtWzN5ut8_Uix3jyVjxAU=";
-const AUTH_KEY =  "test003";
-const BASE_URL = "http://dev.halftrust.xyz/payment-service/payment/open/api/mcp";
+const CLIENT_ID = process.env.GATEPAY_CLIENT_ID;
+const SECRET_KEY = process.env.GATEPAY_SECRET_KEY;
+const AUTH_KEY = process.env.GATEPAY_RESTRICTED_KEY;
+const BASE_URL = process.env.GATEPAY_BASE_URL || "http://dev.halftrust.xyz/payment-service/payment/open/api/mcp";
 
-if (!CLIENT_ID || !SECRET_KEY) {
-  console.error("请设置环境变量 GATEPAY_CLIENT_ID 和 GATEPAY_SECRET_KEY");
+if (!CLIENT_ID || !SECRET_KEY || !AUTH_KEY) {
+  console.error("请设置环境变量 GATEPAY_CLIENT_ID、GATEPAY_SECRET_KEY 和 GATEPAY_RESTRICTED_KEY");
   process.exit(1);
 }
 
