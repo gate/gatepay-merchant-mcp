@@ -22,7 +22,7 @@ Add the following to your MCP client configuration:
   "mcpServers": {
     "gatepay-merchant": {
       "command": "npx",
-      "args": ["-y", "gatepay-payment-mcp@latest"],
+      "args": ["-y", "gatepay-merchant-mcp@latest"],
       "env": {
         "GATEPAY_CLIENT_ID": "<your-client-id>",
         "GATEPAY_SECRET_KEY": "<your-secret-key>",

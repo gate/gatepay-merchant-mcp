@@ -2,7 +2,7 @@
   "mcpServers": {
     "gatepay-merchant": {
       "command": "npx",
-      "args": ["-y", "gatepay-payment-mcp@latest"],
+      "args": ["-y", "gatepay-merchant-mcp@latest"],
       "env": {
         "GATEPAY_CLIENT_ID": "",
         "GATEPAY_SECRET_KEY": "",
